@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Books Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        header {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        section {
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+.link{
+  font-size:25px;
+  font-family:sans-serif;
+  text-align:center;
+  padding:50px 0px;
+  font-weight:700; 
+}
+.link a{
+  padding:30px;
+  text-decoration:none;
+  color:#999;
+  position:relative;
+  transition:all 0.4s ease;
+}
+.link a::before,
+.link a::after{
+  height:20px;
+  width:20px;
+  position:absolute;
+  transition:all .35s ease;
+  opacity:0;
+}
+.link a::before{
+  content:'';
+  top:0;
+  right:0;
+  border-top:7px solid #3E8914;
+  border-right:7px solid #2E640F;
+  transform:translate(-100%, 50%);
+}
+.link a::after{
+  content:'';
+  left:0;
+  bottom:0;
+  border-bottom:7px solid #2E640F;
+  border-left:7px solid #3E8914;
+  transform:translate(100%, -50%);
+  
+}
+.link a:hover:before,
+.link a:hover:after{
+  transform:translate(0,0);
+  opacity:1;
+}
+.link a:hover{
+  color:#3DA35D;
+}
+.card {
+  position: relative;
+  margin: 150px auto;
+  width: 450px;
+  padding: 20px;
+  box-shadow: 3px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  border: 0;
+  .circle {
+    border-radius: 3px;
+    width: 150px;
+    height: 150px;
+    background: black;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    border-bottom-left-radius: 170px;
+  }
+  .content {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  h2 {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+  }
+  .social {
+    margin-bottom: 5px;
+      a {
+   text-decoration: none !important;
+   color: black;
+    margin-left: 8px;
+    font-weight: 300;
+    i {
+      font-weight: 400;
+    }
+  }
+  }
+  .location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    i {
+      color: red;
+    }
+    p {
+      font-weight: 300;
+    }
+  }
+  }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>All Books Library</h1>
+    </header>
+
+    <nav class="link">
+        <a href="#" onclick="showAllBooks()">الكتب الكلية</a>
+        <a href="#" onclick="showContestBooks()">المسابقات</a>
+        <a href="#" onclick="showTechBooks()">الكتب التكنولوجية</a>
+    </nav>
+
+    <section id="allBooksSection">
+      
+      
+        <div class="container">
+            <div class="card">
+              <div class="title">
+                <h2>الكتب الكلية</h2>
+                <ul id="allBooksList">
+                    <!-- يمكنك إضافة الكتب الكلية هنا -->
+                    <li>كتاب 1</li>
+                    <li>كتاب 2</li>
+                    <li>كتاب 3</li>
+                </ul>
+          </div>
+        <div class="circle"></div>
+        </div>
+        </div>
+    </section>
+
+    <section id="contestBooksSection" style="display: none;">
+        <div class="container">
+            <div class="card">
+              <div class="title">
+                <h2>المسابقات</h2>
+                <ul id="contestBooksList">
+                    <!-- يمكنك إضافة كتب المسابقات هنا -->
+                    <li>مسابقة 1</li>
+                    <li>مسابقة 2</li>
+                    <li>مسابقة 3</li>
+                </ul>
+          </div>
+        <div class="circle"></div>
+        </div>
+        </div>
+    </section>
+
+    <section id="techBooksSection" style="display: none;">
+        
+        <div class="container">
+            <div class="card">
+              <div class="title">
+                <h2>الكتب التكنولوجية</h2>
+                <ul id="techBooksList">
+                    <!-- يمكنك إضافة الكتب التكنولوجية هنا -->
+                    <li>كتاب تكنولوجي 1</li>
+                    <li>كتاب تكنولوجي 2</li>
+                    <li>كتاب تكنولوجي 3</li>
+                </ul>
+          </div>
+        <div class="circle"></div>
+        </div>
+        </div>
+        
+    </section>
+    
+
+    <script>
+        function showAllBooks() {
+            document.getElementById("allBooksSection").style.display = "block";
+            document.getElementById("contestBooksSection").style.display = "none";
+            document.getElementById("techBooksSection").style.display = "none";
+        }
+
+        function showContestBooks() {
+            document.getElementById("allBooksSection").style.display = "none";
+            document.getElementById("contestBooksSection").style.display = "block";
+            document.getElementById("techBooksSection").style.display = "none";
+        }
+
+        function showTechBooks() {
+            document.getElementById("allBooksSection").style.display = "none";
+            document.getElementById("contestBooksSection").style.display = "none";
+            document.getElementById("techBooksSection").style.display = "block";
+        }
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
